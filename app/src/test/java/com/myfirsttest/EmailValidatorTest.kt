@@ -47,5 +47,24 @@ class EmailValidatorTest {
     fun emailValidator_NullEmail_ReturnsFalse() {
         assertFalse(validator.isValidEmail(null))
     }
+//Home Work
 
+    @Test
+    fun emailValidator_InvalidEmailNoDomain_ReturnsFalse() {
+        assertFalse(validator.isValidEmail("name@"))
+    }
+    @Test
+    fun emailValidator_InvalidEmailNoZoneDomain_ReturnsFalse() {
+        assertFalse(validator.isValidEmail("name@email"))
+    }
+
+    @Test
+    fun emailValidator_InvalidEmailNoAtSymbol_ReturnsFalse() {
+        assertFalse(validator.isValidEmail("nameemail.ru"))
+    }
+
+    @Test
+    fun emailValidator_InvalidEmailNoDotSymbol_ReturnsFalse() {
+        assertFalse(validator.isValidEmail("name@emailru"))
+    }
 }
